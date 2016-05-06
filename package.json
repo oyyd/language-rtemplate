@@ -1,0 +1,12 @@
+{
+  "name": "language-rtemplate",
+  "version": "0.1.0",
+  "description": "",
+  "repository": {
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">1.0.0"
+  },
+  "dependencies": {}
+}

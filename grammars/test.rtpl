@@ -1,0 +1,10 @@
+<State declare={
+  str as 10,
+  arr as [1, 2, 3, 10],
+  obj as {a: 10, b: 20}}/>
+<div class="123123">
+  <div>{'123123' === abc}</div>
+  <script>
+    var a = 10;{'123123' + 10}
+  </script>
+</div>
