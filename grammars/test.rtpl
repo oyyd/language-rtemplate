@@ -1,10 +1,17 @@
 <State declare={
-  str as 10,
+  str as '10',
   arr as [1, 2, 3, 10],
-  obj as {a: 10, b: 20}}/>
-<div class="123123">
+  exp as 1+2,
+  ccc as index,
+  obj as {a: 10, b: {c: 'acb'}},
+} requestConfig={
+  {a: 1+1}
+}/>
+<div class="123123" key={index} config={{a: 10}}>
   <div>{'123123' === abc}</div>
+  {str}
+  {[1,2 ,3]}
   <script>
-    var a = 10;{'123123' + 10}
+    var a = 10;{1 + 2}
   </script>
 </div>

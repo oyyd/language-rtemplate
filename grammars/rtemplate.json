@@ -10,7 +10,7 @@
     {
       "begin": "(</?)((?i:State)\\b)",
       "beginCaptures": {
-        "1": {"name": "punctuation.definition.tag.rtemplate"},
+        "1": {"name": "punctuation.definition.tag.end.rtemplate"},
         "2": {"name": "entity.name.tag.block.any.rtemplate"}
       },
       "end": ">",
@@ -23,18 +23,55 @@
           "include": "#rtemplate-declare-attribute"
         },
         {
-          "include": "#jsx-tag-attributes"
+          "include": "#rtemplate-tag-attributes"
         }
       ]
     },
-    {
-      "include": "#jsx-tag-element-name"
-    }
+    { "include": "#jsx-tag-element-name" }
   ],
   "repository": {
+    "rtemplate-tag-attributes": {
+      "patterns": [
+        { "include": "#jsx-attribute-name" },
+        { "include": "#jsx-assignment" },
+        { "include": "#jsx-string-double-quoted" },
+        { "include": "#jsx-string-single-quoted" },
+        { "include": "#jsx-evaluated-code" },
+        { "include": "#jsx-tag-element-name" },
+        { "include": "#comments" }
+      ]
+    },
     "rtemplate-declare-attribute": {
-      "match": "declare",
-      "name": "keyword.assignment.js"
+      "begin": "(declare)\\s*=\\s*({)",
+      "beginCaptures": {
+        "1": {"name": "entity.other.attribute-name.rtemplate"},
+        "2": {"name": "punctuation.section.embedded.begin.rtemplate"}
+      },
+      "end": "}",
+      "endCaptures": {
+        "0": {"name": "punctuation.section.embedded.end.rtemplate"}
+      },
+      "patterns": [
+        {"include": "#rtemplate-declare-assignment"}
+      ]
+    },
+    "rtemplate-declare-assignment": {
+      "patterns": [
+        {"include": "#rtemplate-declare-as"},
+        {"include": "#rtemplate-declare-comma"},
+        {"include": "source.js.jsx"}
+      ]
+    },
+    "rtemplate-declare-as": {
+      "match": "\\s*([\\w]+)\\s+(as)\\s+",
+      "captures": {
+        "1": {"name": "string.unquoted.rtemplate"},
+        "2": {"name": "keyword.assignment.rtemplate"}
+      }
+    },
+    "rtemplate-declare-comma": {
+      "match": ",",
+      "name": "meta.delimiter.comma.rtemplate"
     },
     "core": {
       "patterns": [
@@ -427,7 +464,8 @@
             "0": { "name": "meta.brace.curly.js" }
           },
           "patterns": [
-            { "include": "$self" }
+            { "include": "$self" },
+            { "include": "source.js.jsx"}
           ]
         }
       ]
