@@ -1,6 +1,6 @@
 # language-rtemplate
 
-用于atom的rtemplate高亮package。当前版本可能包含各种各样的问题，请发issue或pr来帮助我们解决。
+用于atom的rtemplate高亮package。当前版本可能包含各种各样的问题和没有涉及到的地方，请发issue或pr来帮助我们解决。
 
 ## 注意
 
