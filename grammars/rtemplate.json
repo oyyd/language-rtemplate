@@ -59,6 +59,7 @@
       "patterns": [
         {"include": "#rtemplate-declare-as"},
         {"include": "#rtemplate-declare-comma"},
+        {"include": "#rtemplate-declare-url"},
         {"include": "source.js.jsx"}
       ]
     },
