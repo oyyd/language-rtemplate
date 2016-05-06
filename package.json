@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "用于atom的rtemplate高亮package。",
   "repository": {
-    "github": "https://github.com/oyyd/language-rtemplate"
+    "type": "git",
+    "url": "git+https://github.com/oyyd/language-rtemplate"
   },
   "license": "MIT",
   "engines": {
