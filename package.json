@@ -1,6 +1,6 @@
 {
   "name": "language-rtemplate",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "用于atom的rtemplate高亮package。",
   "repository": {
     "type": "git",
