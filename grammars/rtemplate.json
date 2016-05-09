@@ -7,7 +7,12 @@
     "rtpl"
   ],
   "patterns": [
-    {
+    { "include": "#rtemplate-tag-declare" },
+    { "include": "#jsx-evaluated-code"},
+    { "include": "#jsx-tag-element-name" }
+  ],
+  "repository": {
+    "rtemplate-tag-declare": {
       "begin": "(</?)((?i:State)\\b)",
       "beginCaptures": {
         "1": {"name": "punctuation.definition.tag.end.rtemplate"},
@@ -27,9 +32,6 @@
         }
       ]
     },
-    { "include": "#jsx-tag-element-name" }
-  ],
-  "repository": {
     "rtemplate-tag-attributes": {
       "patterns": [
         { "include": "#jsx-attribute-name" },
@@ -42,12 +44,32 @@
       ]
     },
     "rtemplate-declare-attribute": {
+      "patterns": [
+        { "include": "#rtemplate-declare-attribute-square"},
+        { "include": "#rtemplate-declare-attribute-double-quote"}
+      ]
+    },
+    "rtemplate-declare-attribute-square": {
       "begin": "(declare)\\s*=\\s*({)",
       "beginCaptures": {
         "1": {"name": "entity.other.attribute-name.rtemplate"},
         "2": {"name": "punctuation.section.embedded.begin.rtemplate"}
       },
       "end": "}",
+      "endCaptures": {
+        "0": {"name": "punctuation.section.embedded.end.rtemplate"}
+      },
+      "patterns": [
+        {"include": "#rtemplate-declare-assignment"}
+      ]
+    },
+    "rtemplate-declare-attribute-double-quote": {
+      "begin": "(declare)\\s*=\\s*(\")",
+      "beginCaptures": {
+        "1": {"name": "entity.other.attribute-name.rtemplate"},
+        "2": {"name": "punctuation.section.embedded.begin.rtemplate"}
+      },
+      "end": "\"",
       "endCaptures": {
         "0": {"name": "punctuation.section.embedded.end.rtemplate"}
       },
@@ -64,7 +86,7 @@
       ]
     },
     "rtemplate-declare-as": {
-      "match": "\\s*([\\w]+)\\s+(as)\\s+",
+      "match": "\\s*([\\w]+)\\s+(as)\\b",
       "captures": {
         "1": {"name": "string.unquoted.rtemplate"},
         "2": {"name": "keyword.assignment.rtemplate"}
